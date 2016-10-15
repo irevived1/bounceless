@@ -10,10 +10,6 @@
   <%= @issue.body %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @issue.user_id %>
-</p>
 
 <p>
   <strong>Dept status:</strong>
@@ -35,5 +31,4 @@
   <%= @issue.bounce_counter %>
 </p>
 
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>

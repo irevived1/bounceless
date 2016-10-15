@@ -17,10 +17,6 @@ class IssuesController < ApplicationController
     @issue = Issue.new
   end
 
-  # GET /issues/1/edit
-  def edit
-  end
-
   # POST /issues
   # POST /issues.json
   def create
