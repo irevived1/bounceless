@@ -3,8 +3,4 @@ class ApplicationController < ActionController::Base
 
   
 
-  def main
-  	redirect_to issues_path
-  end
-
 end

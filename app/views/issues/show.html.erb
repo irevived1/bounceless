@@ -35,8 +35,17 @@
   <strong>Created:</strong>
   <%= @issue.time_ago %>
 </p>
+<%= link_to 'Back', issues_path, class: 'btn btn-primary'%>
+<%= link_to 'Destroy', @issue, method: :delete, data: { confirm: 'Are you sure?' }, id:'destroy', class: 'btn btn-primary' %>
 
 <% if user_signed_in? && current_user.role != 'student' %>
-  <%= link_to "Add comment", new_issue_comment_path %><br><br>
+  <%= link_to "Add comment/Transfer", new_issue_comment_path %><br><br>
+  <% @comments.each do | c |  %>
+    <div id="comment_<%= c.id %>">
+      <h2><%= c.faculty.email %>: <%= c.title  %></h2>
+      <p><%= c.body %></p>
+    </div>
+  <% end %>
 <% end %>
-<%= link_to 'Back', issues_path %>
+
+

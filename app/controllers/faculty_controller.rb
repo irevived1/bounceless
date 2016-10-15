@@ -10,23 +10,13 @@ class FacultyController < ApplicationController
     end
   end
 
-  def create
-  end
-
-  def new
-  end
-
-  def destroy
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def show
-  end
+	def track_all_open_issue
+    @issues = Issue.where("status != 'resolved' AND dept_id == #{current_user.department_id}")
+		respond_to do |format|
+      format.html { render 'issues/index' }
+      format.json { render json: @issues }
+    end
+	end
 
   def must_be_faculty
     if ( current_user.role != 'faculty' )

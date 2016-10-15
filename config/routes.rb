@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	devise_for :users
 	
-	root 'application#main'  #for redirecting to student or faculty
+	root 'issues#index'  #for redirecting to student or faculty
 
   resources :issues
   get '/issues/:id/comment/new', to: 'comment#new', as: 'new_issue_comment'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'issues/newDeptIssue' => 'issues#newDeptIssue'
 
   scope :student do
-	  get 'issues' => 'student#track_all_issue', as: :student_issues
+	  get 'issues' => 'faculty#track_all_open_issue', as: :student_issues
 	  get 'issues/departments' => 'student#departments', as: :choose_department
 	end
 end

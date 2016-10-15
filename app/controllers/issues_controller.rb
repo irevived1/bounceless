@@ -1,27 +1,35 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, expect: [:create]
+  before_action :set_issue, only: [:show, :edit, :destroy]
 
   # GET /issues
   # GET /issues.json
   def index
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    elsif current_user.role == 'student'
+    if current_user.role == 'student'
       @issues = Issue.where(student_id: current_user.id)
     elsif current_user.role == 'faculty'
       @issues = Issue.where(dept_id: current_user.department_id)
     else
       @issues = Issue.all
     end
+    respond_to do |format|
+      format.html { render 'issues/index' }
+      format.json { render json: @issues }
+    end
   end
 
   # GET /issues/1
   # GET /issues/1.json
   def show
+    if current_user.role != 'student'
+      @comments = @issue.comments
+    end
   end
 
   def newDeptIssue
+    if params['dept_id'] == nil
+      return redirect_to choose_department_path
+    end
     @issue = Issue.new(dept_id:params['dept_id'].to_i)
     render 'new'
   end
