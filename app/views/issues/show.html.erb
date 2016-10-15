@@ -1,48 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @issue.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @issue.title %>
+  </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @issue.body %>
-</p>
+  <p>
+    <strong>Body:</strong>
+    <%= @issue.body %>
+  </p>
 
 
-<p>
-  <strong>Dept status:</strong>
-  <%= @issue.dept_status %>
-</p>
+  <p>
+    <strong>Dept status:</strong>
+    <%= @issue.dept_status %>
+  </p>
 
-<p>
-  <strong>Student status:</strong>
-  <%= @issue.student_status %>
-</p>
+  <p>
+    <strong>Student status:</strong>
+    <%= @issue.student_status %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @issue.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @issue.status %>
+  </p>
 
-<p>
-  <strong>Bounce counter:</strong>
-  <%= @issue.bounce_counter %>
-</p>
+  <p>
+    <strong>Bounce counter:</strong>
+    <%= @issue.bounce_counter %>
+  </p>
 
-<p>
-  <strong>Created:</strong>
-  <%= @issue.time_ago %>
-</p>
-<%= link_to 'Back', issues_path, class: 'btn btn-primary'%>
-<%= link_to 'Destroy', @issue, method: :delete, data: { confirm: 'Are you sure?' }, id:'destroy', class: 'btn btn-primary' %>
+  <p>
+    <strong>Created:</strong>
+    <%= @issue.time_ago %>
+  </p>
+  <%= link_to 'Back', issues_path, class: 'btn btn-primary'%>
+  <%= link_to 'Destroy', @issue, method: :delete, data: { confirm: 'Are you sure?' }, id:'destroy', class: 'btn btn-primary' %>
 
-<% if user_signed_in? && current_user.role != 'student' %>
-  <%= link_to "Add comment/Transfer", new_issue_comment_path %><br><br>
+  <% if user_signed_in? && current_user.role != 'student' %>
+    <%= link_to "Add comment/Transfer", new_issue_comment_path %><br><br>
+
+  <% if @comments.length > 0 %> 
+    <h1>Comments:</h1>
+  <% end %>
+  </div>
+
   <% @comments.each do | c |  %>
-    <div id="comment_<%= c.id %>">
-      <h2><%= c.faculty.email %>: <%= c.title  %></h2>
+    <div class="container" id="comment_<%= c.id %>">
+      <h3><%= c.faculty.email %>: <%= c.title  %></h3>
       <p><%= c.body %></p>
     </div>
   <% end %>
