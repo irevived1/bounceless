@@ -11,11 +11,6 @@ class IssuesController < ApplicationController
   def show
   end
 
-  # GET /issues/new
-  def new
-    @issue = Issue.new
-  end
-
   def newDeptIssue
     @issue = Issue.new(dept_id:params['dept_id'].to_i)
     render 'new'
