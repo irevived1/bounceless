@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   
   
   scope :student do
-	  get 'issues' => 'student#track_all_issue', as: :student_issues
-	end
+    get 'issues' => 'student#track_all_issue', as: :student_issues
+  end
 end
 
 

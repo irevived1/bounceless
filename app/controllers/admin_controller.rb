@@ -25,7 +25,7 @@ class AdminController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:status, :role)
+      params.require(:user).permit(:department_id, :role)
     end
     def authenticate(email, password)
       user = User.find_for_authentication(:email => email)

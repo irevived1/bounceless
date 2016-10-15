@@ -6,7 +6,7 @@
     <%= f.label "Department" %>
     <%= f.select(:department_id) do %>
       <% departments_array = Department.all.map {|dept| [dept.name, dept.id]} %>
-      <%= options_for_select(departments_array) %>
+      <%= options_for_select(departments_array, @user.department_id) %>
     <% end %>
   </div>
 
