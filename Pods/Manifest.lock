@@ -1,0 +1,15 @@
+PODS:
+  - SwiftyJSON (3.1.1)
+  - TTGSnackbar (1.2.1)
+
+DEPENDENCIES:
+  - SwiftyJSON
+  - TTGSnackbar
+
+SPEC CHECKSUMS:
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  TTGSnackbar: 294ccf62c61faec20b05f967a2e62bd1a912106f
+
+PODFILE CHECKSUM: 4bcaffc03783dc423dc6c5f31b61f696b6e89a0d
+
+COCOAPODS: 1.1.0.rc.2

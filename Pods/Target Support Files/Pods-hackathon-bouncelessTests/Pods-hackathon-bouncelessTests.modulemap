@@ -1,0 +1,6 @@
+framework module Pods_hackathon_bouncelessTests {
+  umbrella header "Pods-hackathon-bouncelessTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

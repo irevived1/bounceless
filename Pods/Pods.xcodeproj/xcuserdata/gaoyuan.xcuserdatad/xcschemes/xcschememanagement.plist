@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-hackathon-bounceless.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-hackathon-bouncelessTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-hackathon-bouncelessUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TTGSnackbar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>41C271BC36CFB4C6F51634563A752357</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7286F3D7958E1AB1E5025414B35764E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A47B06DEAE901428676E5C57142E00DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C77AFF171FCD8481B05AE34A74C9D44B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5D50CCBF92E6FC7CD72B234DB94B3BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
