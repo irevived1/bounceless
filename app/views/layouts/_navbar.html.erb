@@ -2,8 +2,9 @@
   <ul>
     <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
     <a href="<%= url_for(student_issues_path) %>"><li>Track Issue</li></a> 
-    <% if current_user %>
-      <a href="<%= url_for(destroy_user_session_path) %>"><li id="right">Logout</li></a>
+    <% if user_signed_in? %> 
+     
+      <li id="right"><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
     <% else %>
       <a href="<%= url_for(new_user_registration_path) %>"><li id="right">Sign Up</li></a>
       <a href="<%= url_for(new_user_session_path) %>"><li id="right">Login</li></a> 
