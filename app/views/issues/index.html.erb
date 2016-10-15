@@ -1,3 +1,4 @@
+    <%= javascript_include_tag '/assets/issues.js'%>
 <div class="container center">
   <p id="notice"><%= notice %></p>
 
@@ -28,9 +29,9 @@
               <td><%= issue.status %></td>
               <td><%= issue.bounce_counter %></td>
               <td><%= issue.time_ago %></td>
-              <td><%= link_to 'Show', issue %></td>
+              <td><%= link_to 'Show', issue, id:'show' %></td>
               <td><%#= link_to 'Edit', edit_issue_path(issue) %></td>
-              <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%# <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, id:'destroy' %1></td> %>
             </tr>
           <% end %>
         <% end %>
@@ -43,3 +44,9 @@
     <%= link_to 'New Issue', choose_department_path , class: 'btn btn-primary' %>
   <% end %>
 </div>
+
+<style type="text/css" media="screen">
+  #show {
+    display: none
+  }  
+</style>
