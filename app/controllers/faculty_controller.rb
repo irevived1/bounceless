@@ -8,6 +8,14 @@ class FacultyController < ApplicationController
     end
   end
 
+	def track_all_open_issue
+    @issues = Issue.where("status != 'resolved' AND dept_id == #{current_user.department_id}")
+		respond_to do |format|
+      format.html { render 'issues/index' }
+      format.json { render json: @issues }
+    end
+	end
+
   def create
   end
 
