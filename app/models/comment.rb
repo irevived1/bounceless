@@ -24,6 +24,7 @@ class Comment < ApplicationRecord
       issue.dept_id = dept_id
       issue.status = "transfer"
       issue.bounce_counter += 1
+      # Issue.find_by(id:issue.id).update(:bounce_counter => (bounce_counter + 1))
       issue.save
     end
   end
