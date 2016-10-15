@@ -1,0 +1,59 @@
+
+<%= form_for(issue) do |f| %>
+  <% if issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :user_id %1> %>
+  <%#   <%= f.number_field :user_id %1> %>
+  <%# </div> %>
+
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :dept_status %1> %>
+  <%#   <%= f.text_field :dept_status %1> %>
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :student_status %1> %>
+  <%#   <%= f.text_field :student_status %1> %>
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :status %1> %>
+  <%#   <%= f.text_field :status %1> %>
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :bounce_counter %1> %>
+  <%#   <%= f.number_field :bounce_counter %1> %>
+  <%# </div> %>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
