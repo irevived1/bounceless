@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'faculty/index'
 
   get 'faculty/create'
@@ -19,7 +20,12 @@ Rails.application.routes.draw do
 
   get 'comment/update'
 
+=======
+>>>>>>> 8c02dcaadbfe805aae750932c0a8dc55061c3d4c
   resources :issues
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  scope :student do
+	  get 'issues' => 'student#track_all_issue'
+	end
 end
