@@ -1,8 +1,8 @@
 <div class="navbar">
   <ul>
-    <a href=""><li>New Issue</li></a>
-    <a href=""><li>Track Issue</li></a> 
-    <a href=""><li id="right">Sign Up</li></a>
-    <a href=""><li id="right">Login</li></a> 
+    <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
+    <a href="<%= url_for(issues_path) %>"><li>Track Issue</li></a> 
+    <a href="<%= url_for(new_user_registration_path) %>"><li id="right">Sign Up</li></a>
+    <a href="<%= url_for(new_user_session_path) %>"><li id="right">Login</li></a> 
   </ul>
 </div>
