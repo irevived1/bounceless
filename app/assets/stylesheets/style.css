@@ -5,18 +5,18 @@
   box-shadow: 3px 3px #888888; 
 }
 
-.navbar ul li {
+.navbar ul a li {
   display: inline-block;
   padding: 1.5em 1em;
 }
 
-.navbar ul li:hover {
+.navbar ul a li:hover {
   display: inline-block;
   padding: 1.5em 1em;
-  background-color: black;
+  background-color: #4cafa6;
 }
 
-li a {
+a li {
   color: #f1f1f1;
   text-decoration: none;
 }
