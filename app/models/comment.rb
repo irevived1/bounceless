@@ -13,7 +13,7 @@ class Comment < ApplicationRecord
 
   def dept_status=(status)
     issue.dept_status = status
-    if status != 'resolved'
+    if status != 'resolve'
       issue.status = status
     end
     issue.save

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   
   post 'issues/newDeptIssue' => 'issues#newDeptIssue'
 
+  post '/issue/:id/mark-resolved', to: 'issues#resolve', as: 'mark_resolved'
+  post '/issue/:id/unresolve', to: 'issues#unresolve', as: 'refuse_resolved'
+
   scope :student do
 	  get 'issues' => 'faculty#track_all_open_issue', as: :student_issues
 	  get 'issues/departments' => 'student#departments', as: :choose_department

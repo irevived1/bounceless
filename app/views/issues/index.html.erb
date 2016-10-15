@@ -23,7 +23,11 @@
       <tbody>
         <% if @issues %>
           <% @issues.each do |issue| %>
-            <tr>
+	    <% if issue.status == "resolved" %>
+	      <tr class="resolved" onclick="clickIssue()">
+	    <% else %>
+	      <tr>
+	    <% end %>
               <td><%= issue.title %></td>
               <%# <td><%= issue.body %1></td> %>
               <td><%= issue.status %></td>
@@ -32,6 +36,10 @@
               <td><%= link_to 'Show', issue, id:'show' %></td>
               <td><%#= link_to 'Edit', edit_issue_path(issue) %></td>
               <%# <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, id:'destroy' %1></td> %>
+	      <% if current_user.role == 'student' && issue.status != issue.dept_status %>
+		<td><%= button_to 'Resolve', mark_resolved_path(issue), method: "POST" %></td>
+		<td><%= button_to 'Unresolved', refuse_resolved_path(issue), method: "POST" %></td>
+	      <% end %>
             </tr>
           <% end %>
         <% end %>

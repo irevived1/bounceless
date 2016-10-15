@@ -4,8 +4,9 @@ $(document).on('turbolinks:load', function() {
 
 var a = 'fck'
 function clickIssue() {
-  $('tbody tr td').on('click', function() {
-    $('#show')[0].click()
+  $('tbody tr').on('click', function() { 
+    // console.log(this.children[4]);
+    window.location = $(this).find('td a').attr('href');
   })
 }
 
