@@ -12,6 +12,10 @@ class CommentController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
+      if @comment.issue.status == 'transfer'
+        @comment.issue.bounce_counter += 1
+        @comment.issue.save
+      end
       redirect_to issue_path(@comment.issue)
     else
       @issue = Issue.find_by(id:@comment.issue.id)
