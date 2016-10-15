@@ -4,6 +4,15 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    elsif current_user.role == 'student'
+      @issues = Issue.where(student_id: current_user.id)
+    elsif current_user.role == 'faculty'
+      @issues = Issue.where(dept_id: current_user.department_id)
+    else
+      @issues = Issue.all
+    end
   end
 
   # GET /issues/1
