@@ -88,6 +88,8 @@ class IssuesController < ApplicationController
     issue = Issue.find(params[:id])
     if issue.student_id == current_user.id 
       issue.status = 'reopened'
+      issue.dept_status = 'reopened'
+      issue.student_status = 'reopened'
       issue.save 
     end
   end
