@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015131918) do
+ActiveRecord::Schema.define(version: 20161015161656) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20161015131918) do
     t.string   "dept_status"
     t.string   "student_status"
     t.string   "status"
-    t.integer  "bounce_counter"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "bounce_counter", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "dept_id"
   end
 
