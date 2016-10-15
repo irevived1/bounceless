@@ -40,6 +40,6 @@
     <br>
   </div>
   <% if current_user.role == "student" %>
-    <%= link_to 'New Issue', new_issue_path, class: 'btn btn-primary' %>
+    <%= link_to 'New Issue', choose_department_path , class: 'btn btn-primary' %>
   <% end %>
 </div>
