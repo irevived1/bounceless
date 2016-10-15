@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def main
   	render 'issues/index'
   end
+
 end
