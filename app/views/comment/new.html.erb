@@ -1,2 +1,12 @@
-<h1>Comment#create</h1>
-<p>Find me in app/views/comment/create.html.erb</p>
+<div class="container">
+  <h1 align="center">Comment</h1>
+  <%= form_for(@comment, url: '/comments') do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %><br>
+    <%= f.hidden_field :user_id, value:current_user.id %>
+    <%= f.hidden_field :issue_id, value:@issue.id %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 	root 'application#main'  #for redirecting to student or faculty
 
   resources :issues
+  get '/issues/:id/comment/new', to: 'comment#new', as: 'new_issue_comment'
+  post '/comments', to: 'comment#create', as: 'create_comment'
+  
   resources :faculty
   resources :comment
   get '/reassign-user/:id', to: 'admin#edit', as: 'reassign_user'
