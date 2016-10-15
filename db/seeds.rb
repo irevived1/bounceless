@@ -19,6 +19,7 @@ g = User.create( :email => 'g@b.c', :password => '12341234', :password_confirmat
 a = User.create( :email => 'a@b.c', :password => '12341234', :password_confirmation => '12341234',:department_id => admissions.id, :role => 'faculty')
 b = User.create( :email => 'b@b.c', :password => '12341234', :password_confirmation => '12341234',:department_id => admissions.id, :role => 'faculty')
 c = User.create( :email => 'c@b.c', :password => '12341234', :password_confirmation => '12341234',:department_id => bursars.id , :role => 'faculty')
+h = User.create(email: 'admin@b.c', password: '12341234', :password_confirmation => '12341234', :role => 'admin')
 
 
 Issue.create(title:'from user d',body:'help me asap',student_id:d.id,dept_id: admissions.id, student_status:'pending',dept_status:'pending',status:'pending')
