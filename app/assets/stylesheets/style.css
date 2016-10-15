@@ -10,7 +10,27 @@
   padding: 1.5em 1em;
 }
 
+.navbar ul li a {  
+  color: #f1f1f1;
+  text-decoration: none; 
+}
+
+.navbar ul li a:hover {
+  background-color: #4cafa6;
+}
+
+.navbar ul li {
+  display: inline-block;
+  padding: 1.5em 1em;
+}
+
 .navbar ul a li:hover {
+  display: inline-block;
+  padding: 1.5em 1em;
+  background-color: #4cafa6;
+}
+
+.navbar ul li:hover {
   display: inline-block;
   padding: 1.5em 1em;
   background-color: #4cafa6;
