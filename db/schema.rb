@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20161015001912) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "issues", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -30,6 +36,7 @@ ActiveRecord::Schema.define(version: 20161015001912) do
     t.integer  "bounce_counter"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "dept_id"
   end
 
   create_table "users", force: :cascade do |t|
