@@ -3,7 +3,7 @@ class StudentController < ApplicationController
 		@issues = Issue.all
 
 		respond_to do |format|
-      format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
+      format.html { render 'issues/index' }
       format.json { render json: @issues }
     end
 	end
