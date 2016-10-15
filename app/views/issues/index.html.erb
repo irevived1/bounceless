@@ -24,7 +24,7 @@
         <% if @issues %>
           <% @issues.each do |issue| %>
 	    <% if issue.status == "resolved" %>
-	      <tr class="resolved">
+	      <tr class="resolved" onclick="clickIssue()">
 	    <% else %>
 	      <tr>
 	    <% end %>
