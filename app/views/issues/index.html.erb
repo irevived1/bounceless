@@ -59,3 +59,17 @@
   }  
 
 </style>
+
+
+<script type="text/javascript" charset="utf-8">
+  
+  var a = 'fck'
+  function clickIssue() {
+    $('tbody tr').on('click', function() { 
+      window.location = $(this).find('td a').attr('href');
+    })
+  }
+  $(document).on('turbolinks:load', function() {
+    clickIssue()
+  })
+</script>

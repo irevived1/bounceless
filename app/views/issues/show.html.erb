@@ -44,9 +44,8 @@
   <% if user_signed_in? && current_user.role != 'student' %>
       <%= link_to "Add comment/Transfer", new_issue_comment_path %><br><br>
 
-      <% if @comments.length > 0 %> 
+    <% if @comments.length > 0 %> 
         <h4>Comments:</h4>
-      <% end %>
 
       <table class="table table-hover">
         <thead>
@@ -61,10 +60,11 @@
               <div class="container" id="comment_<%= c.id %>">
               <td><h5><%= c.faculty.email %></h5></td>
               <td><h5><%= c.title  %></h5></td>
-              <td><p><%= c.body %></p></td>
+              <td><h5><i><%= c.body %></h5></i></td>
               </div>
           <% end %>
       </table>
+    <% end %>
   <% end %>
 </div>
 
