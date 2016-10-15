@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  # before_action :authenticate_user!, expect: [:create]
   before_action :set_issue, only: [:show, :edit, :destroy]
 
   # GET /issues
