@@ -1,0 +1,4 @@
+<% @departments.each do |dept| %>
+  <%# <div class="<%= "dept_#{dept.id}" %1>"><h1><%= dept.name %1></h1></div> %>
+  <%= button_to dept.name, issues_newDeptIssue_path, :params =>  { :dept_id => dept.id}, :form => { class:"dept_#{dept.id}"}  %>
+<% end %>
