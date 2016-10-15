@@ -1,6 +1,8 @@
 class CommentController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_authority
   before_action :check_admin, only: [:destroy, :update]
+
   def new
     @comment = Comment.new
     @issue = Issue.find(params[:id])

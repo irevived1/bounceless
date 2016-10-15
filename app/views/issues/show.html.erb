@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" media="all" />
 
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <p id="notice"><%= notice %></p>
   <p>
@@ -51,26 +49,30 @@
       <%= link_to "Add comment/Transfer", new_issue_comment_path %><br><br>
 
     <% if @comments.length > 0 %> 
-        <h4>Comments:</h4>
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>Comments</h3></div>
 
-      <table class="table table-hover">
-        <thead>
-            <tr>
-              <th>Faculty</th>
-              <th>Title</th>
-              <th>Content</th>
-            </tr>
-        </thead>
-          <% @comments.each do | c |  %>
-            <tr>
-              <div class="container" id="comment_<%= c.id %>">
-              <td><h5><%= c.faculty.email %></h5></td>
-              <td><h5><%= c.title  %></h5></td>
-              <td><h5><i><%= c.body %></h5></i></td>
-              </div>
-          <% end %>
-      </table>
-    <% end %>
+          <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th>Faculty</th>
+                  <th>Title</th>
+                  <th>Content</th>
+                </tr>
+            </thead>
+              <% @comments.each do | c |  %>
+                <tr>
+                  <div class="container" id="comment_<%= c.id %>">
+                  <td><h5><%= c.faculty.email %></h5></td>
+                  <td><h5><%= c.title  %></h5></td>
+                  <td><h5><i><%= c.body %></h5></i></td>
+                  </div>
+              <% end %>
+          </table>
+        <% end %>
+
+      </div>
+    </div>
   <% end %>
 </div>
 

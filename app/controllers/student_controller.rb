@@ -1,4 +1,5 @@
 class StudentController < ApplicationController
+  before_action :authenticate_user!, :except => [:departments]
 
   def departments
     @departments = Department.all
