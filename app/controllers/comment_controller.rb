@@ -4,6 +4,7 @@ class CommentController < ApplicationController
   def new
     @comment = Comment.new
     @issue = Issue.find(params[:id])
+    @comment.issue = @issue
   end
 
   def create
@@ -30,7 +31,7 @@ class CommentController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:title, :body, :user_id, :issue_id)
+      params.require(:comment).permit(:title, :body, :user_id, :issue_id, :dept_status)
     end
 
     def check_authority
