@@ -1,6 +1,8 @@
 
 <%= form_for(issue) do |f| %>
   <%= f.hidden_field :student_id, value:current_user.id %>
+  <%= f.hidden_field :dept_id, value:issue.dept_id %>
+
   <% if issue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
