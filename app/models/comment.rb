@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  validates :title,:body, presence: true
   belongs_to :issue
   belongs_to :faculty, foreign_key: :user_id, class_name: 'User'
 
@@ -12,7 +13,7 @@ class Comment < ApplicationRecord
 
   def dept_status=(status)
     issue.dept_status = status
-    if status != 'resolved'
+    if status != 'resolve'
       issue.status = status
     end
     issue.save
@@ -22,6 +23,7 @@ class Comment < ApplicationRecord
     unless dept_id == issue.dept_id
       issue.dept_id = dept_id
       issue.status = "transfer"
+      issue.bounce_counter += 1
       issue.save
     end
   end

@@ -10,10 +10,11 @@ class CommentController < ApplicationController
   end
 
   def create
-    comment = Comment.new(comment_params)
-    if comment.save
-      redirect_to issue_path(comment.issue)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to issue_path(@comment.issue)
     else
+      @issue = Issue.find_by(id:@comment.issue.id)
       render 'new'
     end
   end

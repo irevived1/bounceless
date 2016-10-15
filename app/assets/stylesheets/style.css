@@ -53,7 +53,12 @@ a li {
   font-color: white;
 }
 
+
 #entry-form {
   margin-right: 30%;
   margin-left: 30%;
+}
+
+.resolved {
+  background-color: lightgreen;
 }
