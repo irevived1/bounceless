@@ -1,4 +1,13 @@
 class StudentController < ApplicationController
+
+  def departments
+    @departments = Department.all
+    respond_to do |format|
+      format.html { render 'issues/departments' }
+      format.json { render json: @departments }
+    end
+  end#
+
 	def track_all_issue
     @issues = Issue.where("student_id == #{current_user.id}")
 		respond_to do |format|

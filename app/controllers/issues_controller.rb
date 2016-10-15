@@ -4,7 +4,6 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.all
   end
 
   # GET /issues/1
@@ -15,6 +14,11 @@ class IssuesController < ApplicationController
   # GET /issues/new
   def new
     @issue = Issue.new
+  end
+
+  def newDeptIssue
+    @issue = Issue.new(dept_id:params['dept_id'].to_i)
+    render 'new'
   end
 
   # POST /issues
@@ -65,6 +69,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :body, :student_id, :dept_status, :student_status, :status, :bounce_counter)
+      params.require(:issue).permit(:title, :body, :student_id, :dept_status, :student_status, :status, :bounce_counter,:dept_id)
     end
 end
