@@ -1,6 +1,23 @@
-<% @departments.each do |dept| %>
-  <%# <div class="<%= "dept_#{dept.id}" %1>"><h1><%= dept.name %1></h1></div> %>
-  <br/>
-  <%= button_to dept.name, issues_newDeptIssue_path, :params =>  { :dept_id => dept.id}, :form => { class:"dept_#{dept.id}"}, class: "btn btn-primary"  %>
-<% end %>
+<div class="btn-dept">
+  
+  <% @departments.each do |dept| %>
+    <%# <div class="<%= "dept_#{dept.id}" %1>"><h1><%= dept.name %1></h1></div> %>
+    <br/>
+    <%= button_to dept.name, issues_newDeptIssue_path, :params =>  { :dept_id => dept.id}, :form => { class:"dept_#{dept.id}"}, class: "btn btn-primary btn-lg"  %>
+  <% end %>
+</div>
 
+<style type="text/css" media="screen">
+  .btn.btn-primary.btn-lg {
+      width: 80%;
+      padding: 10px 16px;  
+      font-size: 2em;  
+      line-height: 1.33;  
+      border-radius: 6px;
+  }
+
+  .btn-dept {
+    text-align: center;
+  }
+
+</style>

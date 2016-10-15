@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  validates :title,:body, presence: true
   belongs_to :issue
   belongs_to :faculty, foreign_key: :user_id, class_name: 'User'
 
