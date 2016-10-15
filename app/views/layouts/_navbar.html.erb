@@ -2,7 +2,11 @@
   <ul>
     <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
     <a href="<%= url_for(issues_path) %>"><li>Track Issue</li></a> 
-    <a href="<%= url_for(new_user_registration_path) %>"><li id="right">Sign Up</li></a>
-    <a href="<%= url_for(new_user_session_path) %>"><li id="right">Login</li></a> 
+    <% if current_user %>
+      <a href="<%= url_for(destroy_user_session_path) %>"><li id="right">Logout</li></a>
+    <% else %>
+      <a href="<%= url_for(new_user_registration_path) %>"><li id="right">Sign Up</li></a>
+      <a href="<%= url_for(new_user_session_path) %>"><li id="right">Login</li></a> 
+    <% end %>
   </ul>
 </div>
