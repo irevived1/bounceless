@@ -1,4 +1,5 @@
 class CommentController < ApplicationController
+  before_action :check_authority
   def new
     @comment = Comment.new
     @issue = Issue.find(params[:id])
@@ -22,5 +23,11 @@ class CommentController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:title, :body, :user_id, :issue_id)
+    end
+
+    def check_authority
+      unless user_signed_in? && current_user.role != 'student'
+	return redirect_to root_path
+      end
     end
 end
