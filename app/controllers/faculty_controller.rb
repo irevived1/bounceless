@@ -1,5 +1,7 @@
 class FacultyController < ApplicationController
+  before_action :authenticate_user!
   before_action :must_be_faculty
+  
   def index
     @issues = Issue.where(dept_id:current_user.department_id)
     respond_to do |format|
