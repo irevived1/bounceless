@@ -1,7 +1,7 @@
 <div class="navbar-customized">
   <ul>
     <% if !user_signed_in? || current_user.role == 'student' %>
-      <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
+      <a href="<%= url_for(choose_department_path) %>"><li>New Issue</li></a>
       <% if user_signed_in? && current_user.role == 'student' %>
 	<a href="<%= url_for(student_issues_path) %>"><li>Track Issue</li></a> 
       <% end %> 
