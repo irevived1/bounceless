@@ -1,7 +1,41 @@
-<ul>
-<% User.all.each do |user| %>
-  <% unless user == current_user %>
-    <li><a href="<%= reassign_user_path(user.id) %>"><%= user.email %> (<%= user.role %>)</a></li>
-  <% end %>
-<% end %>
-</ul>
+<div class="container center">
+  <p id="notice"><%= notice %></p>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Users</h3></div>
+    <div class="panel-body">
+      <p>You can track all users here.</p>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Issue counter</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if @users %>
+          <% @users.each do |user| %>
+	    <% unless user == current_user %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+	      <td><%= Department.find_by(id: user.department_id).name rescue 'none' %></td>
+              <td><%= 'placeholder' %></td>
+              <td><%= link_to 'Edit', reassign_user_path(user.id) %></td> 
+	      <td><%= button_to "Delete account", registration_path(user), data: { confirm: "This will permanently delete the account for #{user.email}. Are you sure?" }, method: :delete %></td>	
+            </tr>
+	    <% end %>
+	  <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Edit <%= @user.email %></h2>
+  <h2 align="center">Edit <%= @user.email %></h2>
 
   <%= form_for(@user, url: reassign_user_path) do |f| %> 
 
@@ -29,9 +29,11 @@
     </div>
   <% end %>
 
-  <h3>Delete this account</h3>
+  <div align="center">
+    <h3>Delete this account</h3>
 
-  <%= button_to "Cancel this account", registration_path(@user), data: { confirm: "This will permanently delete the account for #{@user.email}. Are you sure?" }, method: :delete %>
-
-  <%= link_to "Back", :back %>
+    <%= button_to "Delete account", registration_path(@user), data: { confirm: "This will permanently delete the account for #{@user.email}. Are you sure?" }, method: :delete %>
+    <br><br>
+    <%= link_to "Back", :back %>
+  </div>
 </div>
