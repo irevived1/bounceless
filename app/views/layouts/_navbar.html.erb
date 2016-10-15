@@ -1,9 +1,16 @@
 <div class="navbar">
   <ul>
-    <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
-    <a href="<%= url_for(student_issues_path) %>"><li>Track Issue</li></a> 
-    <% if user_signed_in? %> 
-     
+    <% if !user_signed_in? || current_user.role == 'student' %>
+      <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
+      <a href="<%= url_for(student_issues_path) %>"><li>Track Issue</li></a> 
+    <% elsif current_user.role != 'student' %> 
+      <a href="<%= url_for(new_comment_path) %>"><li>Comment on issues</li></a>
+      <a href="<%= url_for(student_issues_path) %>"><li>See open issues</li></a>  
+      <% if current_user.role == 'admin' %>
+	<a href="<%= url_for(manage_users_path) %>"><li>Manage users</li></a>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? %>
       <li id="right"><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
     <% else %>
       <a href="<%= url_for(new_user_registration_path) %>"><li id="right">Sign Up</li></a>

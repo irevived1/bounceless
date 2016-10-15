@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :issues
   resources :faculty
   resources :comment
+  get '/reassign-user/:id', to: 'admin#edit', as: 'reassign_user'
+  get '/manage-users', to: 'admin#index', as: 'manage_users'
   
   
   scope :student do

@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Issue', new_issue_path %>
+<% if current_user.role == "student" %>
+  <%= link_to 'New Issue', new_issue_path %>
+<% end %>

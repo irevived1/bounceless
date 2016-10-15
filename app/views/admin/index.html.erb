@@ -1,0 +1,5 @@
+<ul>
+<% User.all.each do |user| %>
+  <li><a href="<%= reassign_user_path(user.id) %>"><%= user.email %> (<%= user.role %>)</a></li>
+<% end %>
+</ul>
