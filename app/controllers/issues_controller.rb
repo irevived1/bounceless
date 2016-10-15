@@ -20,9 +20,8 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.json
   def create
-    byebug
+    #department_id is required
     @issue = Issue.new(issue_params)
-
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
