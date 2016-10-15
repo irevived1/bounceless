@@ -1,6 +1,14 @@
 <div class="container">
 <div id="entry-form">
+<% flash.each do |key, value| %>
+<div class="alert alert-danger">
+    <a class="close" href="#">&times</a>
+    <center><strong><%= value %></strong></center>
+</div>
+<% end %>
 <h2>Log in</h2>
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
