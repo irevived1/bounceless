@@ -34,4 +34,8 @@
   <%= link_to "Add comment", new_issue_comment_path %><br><br>
 <% end %>
 
+<p>
+  <strong>Created:</strong>
+  <%= @issue.time_ago %>
+</p>
 <%= link_to 'Back', issues_path %>
