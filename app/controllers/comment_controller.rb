@@ -1,8 +1,10 @@
 class CommentController < ApplicationController
   before_action :check_authority
+  before_action :check_admin, only: [:destroy, :update]
   def new
     @comment = Comment.new
     @issue = Issue.find(params[:id])
+    @comment.issue = @issue
   end
 
   def create
@@ -15,18 +17,31 @@ class CommentController < ApplicationController
   end
 
   def destroy
+    comment = Comment.find(params[:id])
+    issue = comment.issue
+    comment.destroy
+    redirect_to issue_path(issue)
   end
 
   def update
+    comment = Comment.find(params[:id])
+    comment.update(comment_params)
+    redirect_to issue_path(issue)
   end
 
   private
     def comment_params
-      params.require(:comment).permit(:title, :body, :user_id, :issue_id)
+      params.require(:comment).permit(:title, :body, :user_id, :issue_id, :dept_status)
     end
 
     def check_authority
       unless user_signed_in? && current_user.role != 'student'
+	return redirect_to root_path
+      end
+    end
+
+    def check_admin
+      unless user_signed_in? && current_user.role == 'admin'
 	return redirect_to root_path
       end
     end

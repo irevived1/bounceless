@@ -3,7 +3,7 @@
 
   <%= form_for(@user, url: reassign_user_path) do |f| %> 
 
-    <div class="field">
+    <div class="form-group">
       <%= f.label "Department" %><br>
       <%= f.select(:department_id) do %>
 	<% departments_array = Department.all.map {|dept| [dept.name, dept.id]} %>
@@ -11,28 +11,28 @@
       <% end %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= f.label "Role" %><br>
-      <%= f.select(:role) do %>
+      <%= f.select(:role, class: 'form-control') do %>
 	<%= options_for_select([['Student', 'student'], ['Faculty', 'faculty'], ['Admin', 'admin']], @user.role) %>
       <% end %>
     </div>
-
-    <div class="field">
+    <br><br>
+    <div class="form-group">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
     </div>
 
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: 'btn btn-primary' %>
     </div>
   <% end %>
 
   <div align="center">
     <h3>Delete this account</h3>
 
-    <%= button_to "Delete account", registration_path(@user), data: { confirm: "This will permanently delete the account for #{@user.email}. Are you sure?" }, method: :delete %>
+    <%= button_to "Delete account", registration_path(@user), data: { confirm: "This will permanently delete the account for #{@user.email}. Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
     <br><br>
     <%= link_to "Back", :back %>
   </div>

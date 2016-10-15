@@ -5,8 +5,32 @@
     <%= f.text_field :title %><br>
     <%= f.label :body %><br>
     <%= f.text_area :body %><br>
+    <%= f.label "Status Update (currently: #{@issue.status})" %><br>
+    <%= f.select(:dept_status, class: 'form-control status') do %>
+      <%= options_for_select([['Resolved', 'resolve'], ['Transfer', 'transfer'], ['Request more information', 'request'], ['Update pending action', 'pending']]) %>
+    <% end %>
+    <div class="form-group departments">
+      <%= f.label "Department" %><br>
+      <%= f.select(:dept_id) do %>
+	<% departments_array = Department.all.map {|dept| [dept.name, dept.id]} %>
+	<%= options_for_select(departments_array, current_user.department_id) %>
+      <% end %>
+    </div>
+
     <%= f.hidden_field :user_id, value:current_user.id %>
-    <%= f.hidden_field :issue_id, value:@issue.id %>
+    <%= f.hidden_field :issue_id, value:@issue.id %><br><br>
     <%= f.submit %>
   <% end %>
+  <script type="text/javascript">
+    $(function () {
+      $(".departments").hide();
+      $("#comment_dept_status").change(function(event) {
+	if ($(this)[0].value == "transfer") {
+	  $(".departments").show();
+	} else {
+	  $(".departments").hide();
+	}
+      });
+    });
+  </script>
 </div>
