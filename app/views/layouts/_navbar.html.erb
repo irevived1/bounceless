@@ -1,7 +1,7 @@
 <div class="navbar">
   <ul>
     <a href="<%= url_for(new_issue_path) %>"><li>New Issue</li></a>
-    <a href="<%= url_for(issues_path) %>"><li>Track Issue</li></a> 
+    <a href="<%= url_for(student_issues_path) %>"><li>Track Issue</li></a> 
     <% if current_user %>
       <a href="<%= url_for(destroy_user_session_path) %>"><li id="right">Logout</li></a>
     <% else %>
