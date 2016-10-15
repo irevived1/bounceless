@@ -31,7 +31,7 @@
   <%= @issue.bounce_counter %>
 </p>
 <% if user_signed_in? && current_user.role != 'student' %>
-  <%= link_to "Add comment", new_issue_comment_path %>
+  <%= link_to "Add comment", new_issue_comment_path %><br><br>
 <% end %>
 
 <%= link_to 'Back', issues_path %>
