@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_issue, only: [:show, :edit, :destroy]
 
   # GET /issues
   # GET /issues.json
@@ -20,6 +20,9 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    if current_user.role != 'student'
+      @comments = @issue.comments
+    end
   end
 
   def newDeptIssue
