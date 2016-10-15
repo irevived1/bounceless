@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	devise_for :users
 	
-	root 'application#main'  #for redirecting to student or faculty
+	root 'issues#index'  #for redirecting to student or faculty
 
   resources :issues
   get '/issues/:id/comment/new', to: 'comment#new', as: 'new_issue_comment'
