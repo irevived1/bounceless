@@ -26,6 +26,9 @@ class IssuesController < ApplicationController
   end
 
   def newDeptIssue
+    if params['dept_id'] == nil
+      return redirect_to choose_department_path
+    end
     @issue = Issue.new(dept_id:params['dept_id'].to_i)
     render 'new'
   end
