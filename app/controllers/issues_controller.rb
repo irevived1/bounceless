@@ -5,16 +5,20 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    if current_user.role == 'student'
-      @issues = Issue.where(student_id: current_user.id)
-    elsif current_user.role == 'faculty'
-      @issues = Issue.where(dept_id: current_user.department_id)
+    if current_user == nil
+      redirect_to new_user_session_path
     else
-      @issues = Issue.all
-    end
-    respond_to do |format|
-      format.html { render 'issues/index' }
-      format.json { render json: @issues }
+      if current_user.role == 'student'
+        @issues = Issue.where(student_id: current_user.id)
+      elsif current_user.role == 'faculty'
+        @issues = Issue.where(dept_id: current_user.department_id)
+      else
+        @issues = Issue.all
+      end
+      respond_to do |format|
+        format.html { render 'issues/index' }
+        format.json { render json: @issues }
+      end
     end
   end
 
